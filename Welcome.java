@@ -34,8 +34,7 @@ public class Welcome {
 				yesOrNo = input.nextLine();
 				System.out.println("");
 				if(yesOrNo.equalsIgnoreCase("Yes")) {
-					yesOrNo = input.nextLine();
-					display.GameRules();			
+					display.GameRules();		//displaying the Game Rules	
 				}else if(yesOrNo.equalsIgnoreCase("No")) {
 					
 				}
@@ -44,7 +43,7 @@ public class Welcome {
 				System.out.println("///// OK SO BEFORE WE BEGIN WOULD YOU LIKE TO KNOW THE GAME RULES? (Yes/No) /////");
 				yesOrNo = input.nextLine();
 				if(yesOrNo.equalsIgnoreCase("Yes")) {
-					display.GameRules();			
+					display.GameRules();		//displaying the Game Rules		
 				}else if(yesOrNo.equalsIgnoreCase("No")) {
 					
 				}
@@ -53,7 +52,7 @@ public class Welcome {
 				System.out.println("///// OK SO BEFORE WE BEGIN WOULD YOU LIKE TO KNOW THE GAME RULES? (Yes/No) /////");
 				yesOrNo = input.nextLine();
 				if(yesOrNo.equalsIgnoreCase("Yes")) {
-					display.GameRules();			
+					display.GameRules();		//displaying the Game Rules		
 				}else if(yesOrNo.equalsIgnoreCase("No")) {
 					
 				}
