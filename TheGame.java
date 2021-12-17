@@ -28,7 +28,7 @@ public class TheGame {
 			System.out.println("");
 			System.out.println("");
 			System.out.println(
-					"******************** LET'S BEGIN ********************");
+					"!<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< LET'S BEGIN >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>! ");
 			System.out.println("");
 			System.out.println("Please guess the word:");
 			System.out.println();
