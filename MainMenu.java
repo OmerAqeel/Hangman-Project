@@ -1,7 +1,7 @@
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class Welcome {
+public class MainMenu {
 
 	public static void main(String[] args) throws FileNotFoundException {
 		// TODO Auto-generated method stub
