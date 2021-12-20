@@ -10,5 +10,6 @@ Input: words is a string array, w is an object, choosing is a positive integer, 
             Increment i
         ELSE THEN
             End
+        END IF
 Output: " - " will be printed according to the length of the rand word that has been chosen from words array.
 
