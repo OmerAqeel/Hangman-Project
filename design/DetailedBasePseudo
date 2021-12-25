@@ -1,0 +1,8 @@
+Algorithm: DetailedBase (wordsList, words, w, scan, choosing, theChosenOne)
+Input: wordsList is the file object, words is an ArrayList, w is a Random object, scan is a Scanner object, choosing is positive integer, theChosenOne is a String,
+WHILE scan.hasNextLine()
+    words.add(scan.hasNextLine())
+END WHILE
+SET choosing = w.nexyInt(words.size())
+SET theChosenOne = words.get(choosing)
+OUTPUT: Getting the words from the file and saving those words to an ArrayList "words". Also, choosing a random word from the ArrayList.
