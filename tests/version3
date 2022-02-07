@@ -1,0 +1,107 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.Scanner;
+public class Testing1 {
+	public static int guesses = 10;
+	public static int warning = 0;
+	public static boolean gameEnds = false;
+
+	public static void main(String[] args) throws FileNotFoundException {
+		// TODO Auto-generated method stub
+		File wordsList = new File("/Users/macbookpro/eclipse-workspace/Hangman/the_words.txt");
+		Scanner scan = new Scanner(wordsList);
+		Scanner guess = new Scanner(System.in);
+		
+		
+		
+		//List of words that will be given to the player
+		ArrayList<String> words = new ArrayList<>();
+		while(scan.hasNextLine()) {									 // The while will run until there is a string/word/etc in the next line so it will stop at the last word of the words.txt because each word is written in different line 
+			words.add(scan.nextLine());							    // All the word from the words.txt will be added to words ArrayList
+		}
+		
+		Random w = new Random();								   // using the "random" package to choose the word from the  list 
+		int choosing = w.nextInt(words.size());                   // declaring a variable with the .nextInt() method which returns a random element from the words array (it will choose a random digit from length of the arra(words)).
+		String theChosenOne = words.get(choosing);               //This variable will be output a the random element (words) from the words 
+		
+		System.out.print("The Word is: ");
+		ArrayList<Character> playerGuess = new ArrayList<>();
+		currentstate(theChosenOne, playerGuess);
+		
+		
+		
+		
+		while(true) {
+			System.out.println();
+			System.out.println();
+			System.out.println("GUESSES" + " = " +guesses);
+			System.out.println("WARNINGS" + " = " + warning);
+		if(!getPlayerGuess(guess, theChosenOne, playerGuess)){		//if the getPlayerGuess returns false then the number of guesses will reduce.
+			guesses --;
+		};
+		if(currentstate(theChosenOne, playerGuess)) {		
+			break;										//the loop will break if the line 41 is true which is if the player guesses all the letter correct.
+		}
+		if(guesses == 0)								//if the number of guesses == 0 then the player will lose the game and loop will break.
+		{System.out.println("");
+		System.out.println("");
+		System.out.println("");
+			System.out.println("!!*****************!!");
+			System.out.println("");
+			System.out.println("  OOPS !! You Lost. ");
+			System.out.println("");
+			System.out.println("!!*****************!!");
+			break;
+		}
+		}
+		if(guesses>0) {
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("!!*****************!!");
+		System.out.println("");
+		System.out.println("  HOORAY !! You Won. ");
+		System.out.println("");
+		System.out.println("!!*****************!!");
+		
+		}
+		
+		
+		
+	}
+	
+	////METHODS 
+	
+	private static boolean getPlayerGuess(Scanner guess, String theChosenOne, ArrayList<Character> playerGuess) {
+		System.out.println("");
+		System.out.println("Please guess the word:");
+		String guessedLetter = guess.nextLine();               //this is where the player will enter the character they expect in the secret word
+		playerGuess.add(guessedLetter.charAt(0));			  // As, soon as the player guess the letter will be saved/added to the Player Guess ArrayList 
+		
+		return theChosenOne.contains(guessedLetter);		//This will return whether the secret word (theChosenOne) contains the guessed letter by the player, returns true when the player guessed the correct letter and false if not.
+	}
+
+	private static boolean currentstate(String theChosenOne, ArrayList<Character> playerGuess) {
+		int count = 0;
+		for(int i = 0; i< theChosenOne.length();i++) {
+			if (playerGuess.contains(theChosenOne.charAt(i))){		 //if the player guesses the letter of the secret word then that letter will be printed instead of " - "
+				System.out.print(theChosenOne.charAt(i));
+				count++;											//As soon as the player gets the correct letter, count will increment so if all the letters are guessed correct the count will be equal to the length of the random word (theChosenOne)
+			}else {System.out.print(" - ");
+		}
+			
+			
+	}
+		return (theChosenOne.length() == count);				//if this is true then the player has guessed the random word and has won the game.
+		
+	}
+	
+	
+	
+	
+}
+	
+
+
