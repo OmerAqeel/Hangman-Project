@@ -1,8 +1,9 @@
 Algorithm: currentstate(theChosenOne, playerGuess, i)
 Input: playerGuess is the ArrayList, theChosenOne is the string and i is positive integer
     Set i = 0
-    FOR i< theChosenOne.length() DO
-        IF playerGuess.contains(theChosenOne.charAt(i)) THEN
+    Set result = 
+    FOR i< size of theChosenOne  DO
+        IF playerGuess contains theChosenOne [i] THEN
                 Print(theChosenOne.charAt(i))
         ELSE IF i == 0 THEN
                 Print(theChosenOne.charAt(0))
