@@ -6,6 +6,7 @@ public class MainMenu {
 	public static void main(String[] args) throws FileNotFoundException {
 		// TODO Auto-generated method stub
 		Scanner input = new Scanner(System.in);
+		Boolean gameContinue = true;
 		System.out.println("");
 		System.out.println(
 				"******************** Here comes THE HANGMAN ********************");
@@ -29,47 +30,52 @@ public class MainMenu {
 					"(L) - - - - - > > > > > LEGEND");
 			System.out.println("");
 			String difficulty = input.nextLine();
-			if(difficulty.equalsIgnoreCase("N")) {
-				System.out.println("///// OK SO BEFORE WE BEGIN WOULD YOU LIKE TO KNOW THE GAME RULES? (Yes/No) /////");
-				yesOrNo = input.nextLine();
-				System.out.println("");
-				if(yesOrNo.equalsIgnoreCase("Yes")) {
-					display.GameRules();		//displaying the Game Rules	
-				}else if(yesOrNo.equalsIgnoreCase("No")) {
-					
+			
+			while (true) {
+				if (TheGame.setDifficulty(difficulty)) {
+					System.out.println("///// OK SO BEFORE WE BEGIN WOULD YOU LIKE TO KNOW THE GAME RULES? (Yes/No) /////");
+					yesOrNo = input.nextLine();
+					System.out.println("");
+					if (yesOrNo.equalsIgnoreCase("Yes") || yesOrNo.equalsIgnoreCase("Y")) {
+						display.GameRules();
+					}else if(yesOrNo.equalsIgnoreCase("No") || yesOrNo.equalsIgnoreCase("n")) {
+						
+					}
+					while(gameContinue) {
+					TheGame.inTheGame();
+					System.out.println("");
+					System.out.println("");
+					System.out.println("");
+					System.out.println("///// WOULD YOU LIKE TO CONTINUE PLAYING ? (Y/N)");
+					String playAgain = input.nextLine();
+					if(playAgain.equalsIgnoreCase("n")) {
+						System.out.println("");
+						System.out.println(":::::::::: THANKS FOR PLAYING THE GAME ! SEE YOU NEXT TIME. ::::::::::");
+						gameContinue = false;
+						break;
+					}
+					while(playAgain.equalsIgnoreCase("y")) {
+						TheGame.gameRestarted();
+						TheGame.inTheGame();
+						System.out.println("///// WOULD YOU LIKE TO CONTINUE PLAYING ? (Y/N)");
+						playAgain = input.nextLine();
+						if(playAgain.equalsIgnoreCase("n")) {
+							System.out.println("");
+							System.out.println(":::::::::: THANKS FOR PLAYING THE GAME ! SEE YOU NEXT TIME. ::::::::::");
+							gameContinue = false;
+							break;
+						}
+					}
+					System.out.println("");
+						gameContinue = false;
+						break;
+					}
 				}
-				TheGame.inTheGame();
-			}else if(difficulty.equalsIgnoreCase("A")) {
-				System.out.println("///// OK SO BEFORE WE BEGIN WOULD YOU LIKE TO KNOW THE GAME RULES? (Yes/No) /////");
-				yesOrNo = input.nextLine();
-				if(yesOrNo.equalsIgnoreCase("Yes")) {
-					display.GameRules();		//displaying the Game Rules		
-				}else if(yesOrNo.equalsIgnoreCase("No")) {
-					
-				}
-				TheGame.inTheGame();
-			}else if(difficulty.equalsIgnoreCase("L")) {
-				System.out.println("///// OK SO BEFORE WE BEGIN WOULD YOU LIKE TO KNOW THE GAME RULES? (Yes/No) /////");
-				yesOrNo = input.nextLine();
-				if(yesOrNo.equalsIgnoreCase("Yes")) {
-					display.GameRules();		//displaying the Game Rules		
-				}else if(yesOrNo.equalsIgnoreCase("No")) {
-					
-				}
-				TheGame.inTheGame();
-			}else if(!(difficulty.equalsIgnoreCase("N")) ||!(difficulty.equalsIgnoreCase("A")) || !(difficulty.equalsIgnoreCase("L")) ) {
-				difficulty = input.nextLine();
-				
+			
+				break;
 			}
-			
-			
-			
-			
-		}else if(yesOrNo.equalsIgnoreCase("N")) {
-			System.out.println(
-					"********** PLEASE LEAVE, THE GAME DOES NOT LIKE YOU **********");
 		}
-		
 	}
 
 }
+
